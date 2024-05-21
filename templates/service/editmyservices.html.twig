@@ -1,0 +1,376 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit your service{% endblock %}
+
+{% block body %}
+
+
+<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.jpg">
+
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="assets/css/animate.css">
+
+<link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
+
+<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
+
+<link rel="stylesheet" href="assets/css/dataTables.bootstrap4.min.css">
+
+<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+<style>
+    .profile{
+        width: 50px;
+        transform: translate(-40%);
+    }
+    .content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 1300px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+    background-color: #FEA116;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #FEA116;
+}
+</style>
+<div class="container-xxl bg-white p-0">
+    <div class="container-xxl bg-white p-0">
+    
+        <!-- Header Start -->
+        <div class="container-fluid bg-dark px-0">
+            <div class="row gx-0">
+                <div class="col-lg-3 bg-dark d-none d-lg-block">
+                    <a href="Home" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                        <style>
+                            .logo{
+                                width: 160px;
+                                height: 113px;
+                            }
+                        </style>
+                        <img src="{{asset('img/test.png')}}" class="logo">
+                    </a>
+                </div>
+                <div class="col-lg-9">
+                    <div class="row gx-0 bg-white d-none d-lg-flex">
+                        <div class="col-lg-7 px-5 text-start">
+                            <div class="h-100 d-inline-flex align-items-center py-2 me-4">
+                                <i class="fa fa-envelope text-primary me-2"></i>
+                                <p class="mb-0">contact@swapcraze.com</p>
+                            </div>
+                            <div class="h-100 d-inline-flex align-items-center py-2">
+                                <i class="fa fa-phone-alt text-primary me-2"></i>
+                                <p class="mb-0">+216 55 462 001</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 px-5 text-end">
+                            <div class="d-inline-flex align-items-center py-2">
+                                <a class="me-3" href="https://www.facebook.com/profile.php?id=61552363545156"><i class="fab fa-facebook-f"></i></a>
+                                <a class="me-3" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="me-3" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="me-3" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="" href="https://www.youtube.com/channel/UC5OrDvL9DscpcAstz7JnQGA"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
+                        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                            <div class="navbar-nav mr-auto py-0">
+                                <a href="Home" class="nav-item nav-link active">Home</a>
+                                <a href="WhoItsFor" class="nav-item nav-link">Who it's for</a>
+                                <a href="HowToCraze" class="nav-item nav-link">How to craze</a>
+                                <a href="WhereWeBarter" class="nav-item nav-link">Where we barter</a>
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Managments</a>
+                                    <div class="dropdown-menu rounded-0 m-0">
+                                        <a href="displayP" class="dropdown-item">Product Managment</a>
+                                        <a href="myservices" class="dropdown-item">Service Managment</a>
+                                        <a href="Ajoutdelivery" class="dropdown-item">Delivery Managment</a>
+                                        <a href="chatting" class="dropdown-item">Messaging Managment</a>
+                                    </div>
+                                </div>
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Service</a>
+                                    <div class="dropdown-menu rounded-0 m-0">
+                                        <a href="myservices" class="dropdown-item">Services list</a>
+                                        <a href="addServic" class="dropdown-item">Add a service</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nav-item dropdown">
+                                <a href="#" class=" profile" data-bs-toggle="dropdown"><img src="{{asset('assets/img/profiles/profile.png')}}" class="profile"></a>
+                                <div class="dropdown-menu rounded-0 m-0">
+                                    <a href="Profile" class="dropdown-item">My profile</a>
+                                    <a href="logout" class="dropdown-item">Log out</a>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+
+
+        <!-- Page Header Start -->
+        <div class="container-fluid page-header mb-5 p-0" style="background-image: url(/img/barter.png);">
+            <div class="container-fluid page-header-inner py-5">
+                <div class="container text-center pb-5">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Edit your service</h1>
+                </div>
+            </div>
+        </div>
+        <!-- Page Header End -->
+
+
+        
+
+
+        <!-- Booking Start -->
+        
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="section-title text-center text-primary text-uppercase">Edit your service</h6>
+                    <h1 class="mb-5">Share your expertise with  <span class="text-primary text-uppercase">SwapCraze</span></h1>
+                </div>
+                <div class="row g-5">
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+                            <div class="col-6 text-end">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="{{asset('img/service5.jpg')}}" style="margin-top: 25%;">
+                            </div>
+                            <div class="col-6 text-start">
+                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="{{asset('img/service2.jpg')}}">
+                            </div>
+                            <div class="col-6 text-end">
+                                <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="{{asset('img/service7.jpg')}}">
+                            </div>
+                            <div class="col-6 text-start">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="{{asset('img/service3.jpg')}}">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="wow fadeInUp" data-wow-delay="0.2s">
+                            {{form_start(form,{attr:{novalidate:'novalidate'}})}}
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        {{ form_widget(form.nameS, {'attr': {'class': 'form-control', 'placeholder': 'Service name'}}) }}
+                                        {{ form_errors(form.nameS, {'attr': {'class': 'form-control', 'placeholder': 'Service name'}}) }}
+                                        <label for="{{ form.nameS.vars.id }}">Service name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        {{ form_widget(form.descriptionS, {'attr': {'class': 'form-control', 'placeholder': 'Description'}}) }}
+                                        {{ form_errors(form.descriptionS, {'attr': {'class': 'form-control', 'placeholder': 'Description'}}) }}
+                                        <label for="{{ form.descriptionS.vars.id }}">Description</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        {{ form_widget(form.localisation, {'attr': {'class': 'form-control', 'placeholder': 'Select your town'}}) }}
+                                        {{ form_errors(form.localisation, {'attr': {'class': 'form-control', 'placeholder': 'Select your town'}}) }}
+                                        <label for="{{ form.localisation.vars.id }}">Select your town</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating date" id="date3" data-target-input="nearest">
+                                        {{ form_widget(form.state, {'attr': {'class': 'form-control datetimepicker-input', 'data-toggle': 'datetimepicker'}}) }}
+                                        {{ form_errors(form.state, {'attr': {'class': 'form-control'}}) }}
+                                        
+                                        <label for="{{ form.state.vars.id }}">State</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating date" id="date3" data-target-input="nearest">
+                                        {{ form_widget(form.dispoDate, {'attr': {'class': 'form-control datetimepicker-input', 'data-toggle': 'datetimepicker'}}) }}
+                                        {{ form_errors(form.dispoDate, {'attr': {'class': 'form-control'}}) }}
+                                        <label for="{{ form.dispoDate.vars.id }}">Disponibility date</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating date" id="date3" data-target-input="nearest">
+                                        {{ form_widget(form.categorie, {'attr': {'class': 'form-control datetimepicker-input', 'data-toggle': 'datetimepicker'}}) }}
+                                        {{ form_errors(form.categorie, {'attr': {'class': 'form-control'}}) }}
+                                        <label for="{{ form.categorie.vars.id }}">Category name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    {{ form_row(form.Submit, {'label':'Edit your serivce', 'attr': {'label':'Edit your serivce', 'class': 'btn btn-primary w-100 py-3', 'type': 'button'}}) }}
+                                </div>
+                                
+                            </div>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                
+                                
+                                    
+                                    
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Booking End -->
+
+
+        <!-- Newsletter Start -->
+        <div class="container newsletter mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 border rounded p-1">
+                    <div class="border rounded text-center p-1">
+                        <div class="bg-white rounded text-center p-5">
+                            <h4 class="mb-4">Evaluate & comment on our <span class="text-primary text-uppercase">Services </span></h4>
+                            <div class="position-relative mx-auto" style="max-width: 400px;">
+                                <input class="form-control w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter your email">
+                                <button type="button" class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Newsletter Start -->
+        
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-light footer wow fadeIn" data-wow-delay="0.1s">
+            <div class="container pb-5">
+                <div class="row g-5">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="bg-primary rounded p-4">
+                            <a href="index"><h1 class="text-white text-uppercase mb-3">SwapCraze</h1></a>
+                            <p class="text-white mb-0">
+								Download <a class="text-dark fw-medium" href="https://htmlcodex.com/hotel-html-template-pro">SwapCraze</a> & Let's create a world where everyone's excess becomes someone else's essentials.
+                                Join the barter revolution!
+							</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <h6 class="section-title text-start text-primary text-uppercase mb-4">Contact</h6>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>El Ghazela, Ariana Tunisia</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+216 55 462 001</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@swapcraze.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/profile.php?id=61552363545156"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-12">
+                        <div class="row gy-5 g-4">
+                            <div class="col-md-6">
+                                <h6 class="section-title text-start text-primary text-uppercase mb-4">Company</h6>
+                                <a class="btn btn-link" href="">About Us</a>
+                                <a class="btn btn-link" href="">Contact Us</a>
+                                <a class="btn btn-link" href="">Privacy Policy</a>
+                                <a class="btn btn-link" href="">Terms & Condition</a>
+                                <a class="btn btn-link" href="">Support</a>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="section-title text-start text-primary text-uppercase mb-4">Services</h6>
+                                <a class="btn btn-link" href="">Educational barter</a>
+                                <a class="btn btn-link" href="">DIY services</a>
+                                <a class="btn btn-link" href="">Health and wellness services</a>
+                                <a class="btn btn-link" href="">Cleaning services</a>
+                                <a class="btn btn-link" href="">Sports services</a>
+                                <a class="btn btn-link" href="">Transportation services</a>
+                                <a class="btn btn-link" href="">Entertainment services</a>
+                                <a class="btn btn-link" href="">Other services</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved. 
+							
+							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="">Home</a>
+                                <a href="">Cookies</a>
+                                <a href="">Help</a>
+                                <a href="">FQAs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+</body>
+{% endblock %}
+
+{% block javascripts %}
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.6.0.min.js"></script>
+
+<script src="assets/js/feather.min.js"></script>
+
+<script src="assets/js/jquery.slimscroll.min.js"></script>
+
+<script src="assets/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/dataTables.bootstrap4.min.js"></script>
+
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+<script src="assets/plugins/select2/js/select2.min.js"></script>
+
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+
+<script src="assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+<script src="assets/plugins/sweetalert/sweetalerts.min.js"></script>
+
+<script src="assets/js/script.js"></script>
+
+{% endblock %}
